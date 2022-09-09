@@ -1,1 +1,1 @@
-This repository is about low level C programming for ALX program
+0x01. C - Variables, if, else, while
