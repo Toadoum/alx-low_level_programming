@@ -1,29 +1,28 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
- * print_number - prints an integer.
- * @n: integer
- * Return: void
+ * *rot13 - encodes a string using rot13.
+ * @s: int type array pointer
+ * Return: encoded
  */
 
-void print_number(int n)
+char *rot13(char *s)
 {
-int divisor = 1, i, resp;
+int i, ii;
+char input[] =  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+char output[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-if (n < 0)
+for (i = 0; s[i] != '\0'; i++)
 {
-	_putchar('-');
-	n *= -1;
+	for (ii = 0; ii < 54; ii++)
+	{
+		if (((s[i] <= 'z' && s[i] >= 'a') || (s[i] <= 'Z' && s[i] >= 'A'))
+		&& s[i] == input[ii])
+		{
+			s[i] = output[ii];
+			break;
+		}
+	}
 }
-
-for (i = 0; n / divisor > 9; i++, divisor *= 10)
-;
-
-for (; divisor >= 1; n %= divisor, divisor /= 10)
-{
-	resp = n / divisor;
-	_putchar('0' + resp);
-
-}
-
+return (s);
 }
